@@ -1,0 +1,11 @@
+# Audio
+ro.vendor.audio.gain.support=true
+ro.vendor.audio.ns.support=true
+ro.vendor.audio.zoom.support=true
+
+# Fingerprint
+persist.vendor.fingerprint.sensor_location=1080|960|200|local:0
+
+# SKU properties
+ro.product.property_source_order=odm,vendor,product,system
+import /vendor/${ro.boot.product.hardware.sku}.build.prop

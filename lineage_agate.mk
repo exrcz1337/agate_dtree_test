@@ -1,0 +1,23 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Inherit from device makefile.
+$(call inherit-product, device/xiaomi/agate/device.mk)
+
+# Inherit LineageOS product
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+PRODUCT_NAME := lineage_agate
+PRODUCT_DEVICE := agate
+PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := 21081111RG
+
+PRODUCT_CHARACTERISTICS := nosdcard
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BuildFingerprint=Xiaomi/agate/agate:12/SP1A.210812.016/V816.0.17.0.UKWMIXM:user/release-keys \
+    DeviceProduct=agate \
+    SystemName=agate
