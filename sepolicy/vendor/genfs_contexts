@@ -1,0 +1,62 @@
+# Display
+genfscon sysfs /devices/platform/14116000.dispsys_config/idle_state                              u:object_r:vendor_sysfs_display:s0
+genfscon sysfs /devices/virtual/mi_display/disp_feature/dc_status                                u:object_r:vendor_sysfs_display:s0
+genfscon sysfs /devices/virtual/mi_display/disp_feature/dynamic_fps                              u:object_r:vendor_sysfs_display:s0
+genfscon sysfs /devices/virtual/mi_display/disp_feature/panel_info                               u:object_r:vendor_sysfs_display:s0
+
+# Extcon
+genfscon sysfs /devices/platform/extcon_usb/extcon/extcon0/cable.0/name                          u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/platform/extcon_usb/extcon/extcon0/cable.1/name                          u:object_r:sysfs_extcon:s0
+
+# Fingerprint
+genfscon sysfs /devices/platform/fingerprint                                                     u:object_r:vendor_fingerprint_sysfs:s0
+
+# Lights
+genfscon sysfs /devices/platform/11f00000.i2c5/i2c-5/5-0034/mt6360_pmu_rgbled.4.auto/leds/blue   u:object_r:sysfs_rgb_led:s0
+genfscon sysfs /devices/platform/11f00000.i2c5/i2c-5/5-0034/mt6360_pmu_rgbled.4.auto/leds/green  u:object_r:sysfs_rgb_led:s0
+genfscon sysfs /devices/platform/11f00000.i2c5/i2c-5/5-0034/mt6360_pmu_rgbled.4.auto/leds/red    u:object_r:sysfs_rgb_led:s0
+
+# Power
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0035/power_supply/Charger_Identify        u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0055/power_supply/bms                     u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0066/power_supply/bq2597x-slave           u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/1101a000.i2c11/i2c-11/11-005b/power_supply/bq2597x-master       u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/1101a000.i2c11/i2c-11/11-0066/power_supply/bq2597x-slave        u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0055/power_supply/bms                     u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0055/verify_digest                        u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0055/verify_digest                        u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0065/power_supply/bq2597x-master          u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/mt_charger/power_supply/main                                    u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/mt_charger/power_supply/usb                                     u:object_r:sysfs_power_supply:s0
+genfscon sysfs /devices/platform/pd_adapter/Charging_Adapter/pd_adapter                          u:object_r:sysfs_power_supply:s0
+
+# Wakeup (https://lkml.org/lkml/2019/8/6/1275)
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0035/power_supply/Charger_Identify/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0035/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0055/power_supply/bms/wakeup              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0055/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0066/power_supply/bq2597x-slave/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11015000.i2c0/i2c-0/0-0066/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1101a000.i2c11/i2c-11/11-005b/power_supply/bq2597x-master/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1101a000.i2c11/i2c-11/11-0066/power_supply/bq2597x-slave/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1101a000.i2c11/i2c-11/11-0066/wakeup                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1101d000.spi6/spi_master/spi6/spi6.0/wakeup                     u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0055/power_supply/bms/wakeup              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0055/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-005a/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0065/power_supply/bq2597x-master/wakeup   u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11cb1000.i2c9/i2c-9/9-0065/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11d03000.i2c7/i2c-7/7-0008/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11d03000.i2c7/i2c-7/7-005a/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11f00000.i2c5/i2c-5/5-004e/tcpc/type_c_port0/wakeup             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11f00000.i2c5/i2c-5/5-004e/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11f01000.i2c6/i2c-6/6-0008/wakeup                               u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/fingerprint/wakeup                                              u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/mt_charger/power_supply/main/wakeup                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/odm/odm:testing-mode/wakeup                                     u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/usb_xhci/usb2/wakeup                                            u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/usb_xhci/wakeup                                                 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/input/input3/wakeup                                              u:object_r:sysfs_wakeup:s0
+
+# USB
+genfscon sysfs /devices/platform/rt-pd-manager/typec/port0                                       u:object_r:sysfs_usb_nonplat:s0

@@ -18,9 +18,10 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+    'device/xiaomi/agate',
     'hardware/mediatek',
+    'hardware/mediatek/libmtkperf_client',
     'hardware/xiaomi',
-    'vendor/xiaomi/mt6893-common',
 ]
 
 lib_fixups: lib_fixups_user_type = {
@@ -38,6 +39,28 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('liblog.so'),
     'vendor/bin/hw/camerahalserver': blob_fixup()
         .binary_regex_replace(b'/system/lib64', b'/vendor/lib64'),
+    ('vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b', 'vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service'): blob_fixup()
+        .replace_needed('libavservices_minijail_vendor.so', 'libavservices_minijail.so')
+        .add_needed('libstagefright_foundation-v33.so'),
+    ('vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron', 'vendor/lib/libnvram.so', 'vendor/lib64/libnvram.so', 'vendor/lib64/libsysenv.so'): blob_fixup()
+        .add_needed('libbase_shim.so'),
+    'vendor/etc/vintf/manifest/manifest_media_c2_V1_2_default.xml': blob_fixup()
+        .regex_replace('1.1', '1.2'),
+    ('vendor/bin/hw/android.hardware.gnss-service.mediatek', 'vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so'): blob_fixup()
+        .replace_needed('android.hardware.gnss-V1-ndk_platform.so', 'android.hardware.gnss-V1-ndk.so'),
+    ('vendor/bin/mnld', 'vendor/lib64/libaalservice.so'): blob_fixup()
+        .replace_needed('libsensorndkbridge.so', 'android.hardware.sensors@1.0-convert-shared.so'),
+    'vendor/lib64/mt6893/libmnl.so': blob_fixup()
+        .add_needed('libcutils.so'),
+    ('vendor/lib/libteei_daemon_vfs.so', 'vendor/lib64/libteei_daemon_vfs.so'): blob_fixup()
+        .add_needed('liblog.so'),
+    'vendor/bin/hw/mtkfusionrild': blob_fixup()
+        .add_needed('libutils-v32.so'),
+    'vendor/lib/librt_extamp_intf.so': blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so': blob_fixup()
+        .replace_needed('libutils.so', 'libutils-v32.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
@@ -50,5 +73,6 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
-    utils = ExtractUtils.device_with_common(module, 'mt6893-common', module.vendor)
+    utils = ExtractUtils.device(module)
     utils.run()
+
